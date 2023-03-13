@@ -1,6 +1,6 @@
 REMIX DEFAULT WORKSPACE
 
-<a href="https://github.com/DaltonChivambo/MaputoToken/blob/main/contracts/MainContract.sol">Main Contract</a>
+<a href="https://github.com/DaltonChivambo/MaputoToken/blob/main/contracts/MainContract.sol">`Main Contract`</a>
 
 Remix default workspace is present when:
 i. Remix loads for the very first time 
