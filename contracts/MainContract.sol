@@ -5,7 +5,7 @@ pragma solidity ^0.8.7;
 
 contract SimpleCoin {
 
-    uint256 public initialSupply; //initial value of token
+    uint256 public totalSupply; //initial value of token
     mapping(address => uint256) public balanceOf; //mapping QUE liga um endereco a um valor
     address public owner;
 
@@ -34,14 +34,29 @@ contract SimpleCoin {
 
     constructor(){
         owner = msg.sender;
-        initialSupply = 1_000_000;
-        balanceOf[owner] = initialSupply;
+        totalSupply = 1_000_000_000;
+        balanceOf[owner] = totalSupply;
 
     }
 
     function changeOwner(address _newOwner) public onlyOwner{
         owner = _newOwner;
     }
+
+
+    //Adress 0 is initialy adress, created when smart contracts are created
+
+    function transfer(address _to, uint256 _value) public returns (bool success) {
+        require(balanceOf[msg.sender] >= _value);
+        require(_to != address(0));
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
+
+        //Emit events
+        emit Transfer(msg.sender, _to, _value);
+        return true;
+    }
+
 
 
 }
