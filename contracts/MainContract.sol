@@ -17,7 +17,8 @@ contract SimpleCoin {
         // decimal - return number o decimal using by the token eg.8 (1_0000_0000)
 
     string public name = "Maputo Token";
-    string public symbol = "MTK";    
+    string public symbol = "MPTK";
+    uint8 public decimals = 9;    
 
 
     //Permitir que outra pessoa transfira o seu token
@@ -45,7 +46,7 @@ contract SimpleCoin {
 
     constructor(){
         owner = msg.sender;
-        totalSupply = 1_000_000_000;
+        totalSupply = 1 * 10 ** decimals;
         balanceOf[owner] = totalSupply;
 
     }
